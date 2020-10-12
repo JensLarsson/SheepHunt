@@ -1,0 +1,239 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+#include "UnityCG.cginc"
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+
+RWStructuredBuffer<float4> circularObstacles;
+RWStructuredBuffer<float3> boxObstaclePositions;
+RWStructuredBuffer<float3> boxObstacleHalfDimentions;
+RWStructuredBuffer<float3> Positions;
+RWStructuredBuffer<float3> Velocities;
+RWStructuredBuffer<float3> target;
+RWStructuredBuffer<float> targetMultiplier;
+RWStructuredBuffer<float> distanceFromPlayer;
+RWStructuredBuffer<int> pinned;
+
+
+
+//RWStructuredBuffer<int> partitionedIndex;
+//RWStructuredBuffer<int> partitionedInxesOffsetStart;
+//RWStructuredBuffer<int> partitionedInxesOffsetStop;
+
+
+
+//struct Rectangle
+//{
+//	float x;
+//	float y;
+//	float width;
+//	float height;
+//
+//	bool Contains(float X, float Y)
+//	{
+//		if (X < x || X > x + width)
+//		{
+//			return false;
+//		}
+//		if (Y < y || Y > y + height)
+//		{
+//			return false;
+//		}
+//		return true;
+//	}
+//	bool Overlaps(Rectangle box)
+//	{
+//		if (x >= box.x + box.width
+//			|| box.x >= x + width)
+//		{
+//			return false;
+//		}
+//
+//		// If one rectangle is above other  
+//		if (y >= box.y + box.height
+//			|| box.y >= y + height)
+//		{
+//			return false;
+//		}
+//		return true;
+//	}
+//	bool Overlaps(float X, float Y, float Width, float Height)
+//	{
+//		if (x >= X + Width
+//			|| X >= x + width)
+//		{
+//			return false;
+//		}
+//
+//		// If one rectangle is above other  
+//		if (y >= Y + Height
+//			|| Y >= y + height)
+//		{
+//			return false;
+//		}
+//		return true;
+//	}
+//};
+//
+//struct QuadTree {
+//
+//	Rectangle boundary;
+//	int capacity;
+//	float3 position[4];
+//
+//};
+
+
+int ammount;
+int boxObstacleCount;
+int circularObstaclesCount;
+float deltaTime;
+float3 playerPosition;
+static const float EPSILON = 0.00000001;
+static const float2 EPSILON2 = float2(0.00000001, 0.00000001);
+static const float3 EPSILON3 = float3(0.00000001, 0.00000001, 0.00000001);
+
+
+float maxSpeed;
+float minSpeed;
+float arenaWidth;
+float wallAwareness = 10;
+float wallAvoidanceStrenght;
+float targetFollowStrenght;
+float separationAwareness;
+float separationStrenght;
+float cohesionAwareness;
+float cohesionStrenght;
+float allignAwareness;
+float allignStrengh;
+float panicAwareness;
+float panicStrenght;
+
+
+
+[numthreads(1, 1, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+	float3 allignment = float3(0, 0, 0);
+	float3 coheshionDirection = float3(0, 0, 0);
+	float3 seperationDirection = float3(0, 0, 0);
+	float3 fleeDirection = float3(0, 0, 0);
+	int allignmentCount = 0;
+	int separationCount = 0;
+	int cohesionCount = 0;
+	for (int index = 1; index < ammount; index++)
+	{
+		int i = (id.x + index) % ammount;
+		float dist = distance(Positions[id.x], Positions[i]);
+		//Allignment
+		if (dist < allignAwareness)
+		{
+			allignment += Velocities[i];
+			allignmentCount++;
+		}
+		//Cohesion
+		if (dist < cohesionAwareness)
+		{
+			coheshionDirection += Positions[i];
+			cohesionCount++;
+		}
+		//Separation
+		if (dist < separationAwareness)
+		{
+			float3 direction = Positions[id.x] - Positions[i] + EPSILON3;
+			direction = normalize(direction) / length(direction);
+			//direction /= (dist + EPSILON);
+			seperationDirection += direction;
+			separationCount++;
+		}
+	}
+	float3 acceleration = float3(0, 0, 0);
+	if (allignmentCount > 0) //Allignment
+	{
+		allignment /= allignmentCount + EPSILON;
+		allignment = normalize(allignment) * maxSpeed;
+		allignment -= Velocities[id.x];
+		allignment = length(allignment) > maxSpeed ? normalize(allignment) * maxSpeed : allignment;
+
+		acceleration += allignment * allignStrengh;
+	}
+	if (cohesionCount > 0)	//Cohesion
+	{
+		coheshionDirection /= cohesionCount + EPSILON;
+		coheshionDirection -= Positions[id.x];
+		coheshionDirection = normalize(coheshionDirection + EPSILON3) * maxSpeed;
+		coheshionDirection -= Velocities[id.x];
+		coheshionDirection = length(coheshionDirection) > maxSpeed ? normalize(coheshionDirection + EPSILON3) * maxSpeed : coheshionDirection;
+
+		acceleration += coheshionDirection * cohesionStrenght;
+	}
+	if (separationCount > 0)	//Separation
+	{
+		seperationDirection = seperationDirection / separationCount + EPSILON3;
+		//seperationDirection = Normalize(seperationDirection) * maxSpeed;
+		seperationDirection -= Velocities[id.x];
+		seperationDirection = length(seperationDirection) > maxSpeed ? normalize(seperationDirection) * maxSpeed : seperationDirection;
+
+		acceleration += seperationDirection * separationStrenght * (1 + separationCount * 0.02f);
+	}
+	distanceFromPlayer[id.x] = distance(Positions[id.x], playerPosition);
+	////Flee
+	//float dist = distance(target, Positions[id.x]);
+	//if (dist < panicAwareness) {
+	//	float normDist = 1 - dist / panicAwareness;
+	//	float3 direction = Positions[id.x] - target + EPSILON3;
+	//	direction = normalize(direction);
+
+	//	acceleration += direction * panicStrenght * normDist * normDist;
+	//}
+
+
+	acceleration += normalize(target[id.x] - Positions[id.x]) * targetFollowStrenght * targetMultiplier[id.x];
+	//targetMultiplier[id.x] = min((distance(Positions[id.x], target[id.x]) / 10), targetMultiplier[id.x] * targetMultiplier[id.x]);
+
+	//Circlular Obstacle Avoidance
+	for (int i = 0; i < circularObstaclesCount; i++) {
+		float3 direction = Positions[id.x] - circularObstacles[i].xyz;
+		direction.y = 0;
+		float dist = (length(direction) - circularObstacles[i].w) * 0.2f;
+		direction = normalize(direction);
+		acceleration += lerp((direction), float3(0, 0, 0), min(dist, 1)) * wallAvoidanceStrenght;
+	}
+	//Box Obstacle Avoicance
+	for (int i = 0; i < boxObstacleCount; i++) {
+		float dx = max(abs(Positions[id.x].x - boxObstaclePositions[i].x) - boxObstacleHalfDimentions[i].x, 0);
+		float dz = max(abs(Positions[id.x].z - boxObstaclePositions[i].z) - boxObstacleHalfDimentions[i].z, 0);
+
+		float3 normal = Positions[id.x] - boxObstaclePositions[i].xyz;
+		normal.y = 0;
+		normal = normalize(normal);
+		normal.x *= boxObstacleHalfDimentions[i].z / boxObstacleHalfDimentions[i].x;
+		normal.z *= boxObstacleHalfDimentions[i].x / boxObstacleHalfDimentions[i].z;
+		float distance = max(dx, dz);
+		acceleration += lerp((normal), float3(0, 0, 0), min((distance*distance)*0.2, 1)) * wallAvoidanceStrenght;
+	}
+
+
+	//Walls
+	float leftWall = (arenaWidth * 0.5f + Positions[id.x].x) / wallAwareness;
+	acceleration += lerp(float3(1, 0, 0), float3(0, 0, 0), min(1.0f, leftWall)) * 20;
+
+	float rightWall = (arenaWidth * 0.5f - Positions[id.x].x) / wallAwareness;
+	acceleration += lerp(float3(-1, 0, 0), float3(0, 0, 0), min(1., rightWall)) * 20;
+
+	float downWall = (arenaWidth * 0.5f + Positions[id.x].z) / wallAwareness;
+	acceleration += lerp(float3(0, 0, 1), float3(0, 0, 0), min(1., downWall)) * 20;
+
+	float upWall = (arenaWidth * 0.5f - Positions[id.x].z) / wallAwareness;
+	acceleration += lerp(float3(0, 0, -1), float3(0, 0, 0), min(1., upWall)) * 20;
+
+	Velocities[id.x] += acceleration * 1.1 * deltaTime;
+
+	float magnitude = length(Velocities[id.x]) + EPSILON;
+	Velocities[id.x] = magnitude <= maxSpeed ? Velocities[id.x] : normalize(Velocities[id.x]) * maxSpeed;
+	Velocities[id.x] = magnitude >= minSpeed ? Velocities[id.x] : normalize(Velocities[id.x]) * minSpeed;
+	//Velocities[id.x] *= pinned[id.x] + EPSILON;
+	Velocities[id.x].y = 0;
+	Positions[id.x] = Positions[id.x] + Velocities[id.x] * deltaTime;
+}
+
