@@ -19,10 +19,17 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Health unit = other.gameObject.GetComponent<Health>();
-        if (unit != null && unit.GetFaction() != faction)
+        if (unit != null)
         {
-            unit.DealDamage(damage);
-            PoolAndDeactivateProjectile();
+            if (unit.GetFaction() == FACTION.other)
+            {
+                PoolAndDeactivateProjectile();
+            }
+            else if (unit.GetFaction() != faction)
+            {
+                unit.DealDamage(damage);
+                PoolAndDeactivateProjectile();
+            }
         }
     }
     private void Update()

@@ -201,6 +201,7 @@ public class GameMaster : MonoBehaviour
         FlockGPU();
     }
 
+
     void FlockGPU()
     {
         //var particionedSpace = unitSpacePartitioner.GetNew1DArray(unitPositions);
@@ -224,6 +225,7 @@ public class GameMaster : MonoBehaviour
             flock[i].unit.transform.eulerAngles = new Vector3(0, Mathf.Atan2(velocities[i].x, velocities[i].z) * Mathf.Rad2Deg, 0);
         }
     }
+
 
     void Flock()
     {

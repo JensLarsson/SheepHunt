@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 38718803}
   - component: {fileID: 38718802}
   - component: {fileID: 38718801}
+  - component: {fileID: 38718804}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -233,7 +234,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 3
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &38718802
@@ -285,6 +286,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38718799}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &38718804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38718799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &123538381
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,6 +459,7 @@ GameObject:
   - component: {fileID: 182331039}
   - component: {fileID: 182331038}
   - component: {fileID: 182331037}
+  - component: {fileID: 182331040}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -522,6 +543,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182331035}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &182331040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182331035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &234137647
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,6 +772,7 @@ GameObject:
   - component: {fileID: 498255059}
   - component: {fileID: 498255058}
   - component: {fileID: 498255057}
+  - component: {fileID: 498255060}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -764,7 +805,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 3
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &498255058
@@ -816,6 +857,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498255055}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &498255060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498255055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &522487276
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +1003,7 @@ GameObject:
   - component: {fileID: 557972501}
   - component: {fileID: 557972500}
   - component: {fileID: 557972499}
+  - component: {fileID: 557972502}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1026,6 +1087,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557972497}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &557972502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557972497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &562851175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,6 +1386,7 @@ GameObject:
   - component: {fileID: 633737445}
   - component: {fileID: 633737444}
   - component: {fileID: 633737443}
+  - component: {fileID: 633737446}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1389,6 +1470,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 633737441}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &633737446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633737441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &634516722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,6 +1501,7 @@ GameObject:
   - component: {fileID: 634516726}
   - component: {fileID: 634516725}
   - component: {fileID: 634516724}
+  - component: {fileID: 634516727}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -1433,7 +1534,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 3
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &634516725
@@ -1485,6 +1586,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634516722}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &634516727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634516722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &662562281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,6 +1617,7 @@ GameObject:
   - component: {fileID: 662562285}
   - component: {fileID: 662562284}
   - component: {fileID: 662562283}
+  - component: {fileID: 662562286}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -1529,7 +1650,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 3
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &662562284
@@ -1581,6 +1702,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662562281}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &662562286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662562281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,6 +2181,7 @@ GameObject:
   - component: {fileID: 820885911}
   - component: {fileID: 820885910}
   - component: {fileID: 820885909}
+  - component: {fileID: 820885912}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -2124,6 +2265,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820885907}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &820885912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820885907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &852968519
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,6 +2297,7 @@ GameObject:
   - component: {fileID: 852968522}
   - component: {fileID: 852968521}
   - component: {fileID: 852968524}
+  - component: {fileID: 852968525}
   m_Layer: 0
   m_Name: WallE
   m_TagString: Untagged
@@ -2232,6 +2393,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60fc229a43a72df4c833c3e7d17975e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &852968525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852968519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &933735930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2587,6 +2767,7 @@ GameObject:
   - component: {fileID: 1140883133}
   - component: {fileID: 1140883132}
   - component: {fileID: 1140883135}
+  - component: {fileID: 1140883136}
   m_Layer: 0
   m_Name: WallW
   m_TagString: Untagged
@@ -2682,6 +2863,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60fc229a43a72df4c833c3e7d17975e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1140883136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140883130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &1152924283
 GameObject:
   m_ObjectHideFlags: 0
@@ -2694,6 +2894,7 @@ GameObject:
   - component: {fileID: 1152924287}
   - component: {fileID: 1152924286}
   - component: {fileID: 1152924285}
+  - component: {fileID: 1152924288}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -2777,6 +2978,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152924283}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1152924288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152924283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &1186065198
 GameObject:
   m_ObjectHideFlags: 0
@@ -2789,6 +3009,7 @@ GameObject:
   - component: {fileID: 1186065202}
   - component: {fileID: 1186065201}
   - component: {fileID: 1186065200}
+  - component: {fileID: 1186065203}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -2821,7 +3042,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 3
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1186065201
@@ -2873,6 +3094,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1186065198}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1186065203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186065198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &1257581996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3024,7 +3264,7 @@ MonoBehaviour:
   unitPrefab: {fileID: 1001559104844094734, guid: d9e0ce1e22cbf0447b576e01515f0490, type: 3}
   computeShader: {fileID: 7200000, guid: 6b8e1510418fd6e43be0395be455645a, type: 3}
   spawnWidth: 500
-  ammount: 3000
+  ammount: 1000
   maxSpeed: 5
   minSpeed: 0.2
   cohesionAwareness: 10
@@ -3063,6 +3303,7 @@ GameObject:
   - component: {fileID: 1364221085}
   - component: {fileID: 1364221084}
   - component: {fileID: 1364221083}
+  - component: {fileID: 1364221086}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -3095,7 +3336,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 3
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1364221084
@@ -3147,6 +3388,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364221081}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1364221086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364221081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &1400154466
 GameObject:
   m_ObjectHideFlags: 0
@@ -3159,6 +3419,7 @@ GameObject:
   - component: {fileID: 1400154470}
   - component: {fileID: 1400154469}
   - component: {fileID: 1400154468}
+  - component: {fileID: 1400154471}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -3191,7 +3452,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 3
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1400154469
@@ -3243,6 +3504,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400154466}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1400154471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400154466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &1439002314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3343,6 +3623,7 @@ GameObject:
   - component: {fileID: 1557522735}
   - component: {fileID: 1557522734}
   - component: {fileID: 1557522733}
+  - component: {fileID: 1557522736}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -3426,6 +3707,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557522731}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1557522736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557522731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &1588537569
 GameObject:
   m_ObjectHideFlags: 0
@@ -3647,6 +3947,7 @@ GameObject:
   - component: {fileID: 1728686206}
   - component: {fileID: 1728686205}
   - component: {fileID: 1728686208}
+  - component: {fileID: 1728686209}
   m_Layer: 0
   m_Name: WallS
   m_TagString: Untagged
@@ -3742,6 +4043,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60fc229a43a72df4c833c3e7d17975e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1728686209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728686203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &1754847002
 GameObject:
   m_ObjectHideFlags: 0
@@ -3754,6 +4074,7 @@ GameObject:
   - component: {fileID: 1754847006}
   - component: {fileID: 1754847005}
   - component: {fileID: 1754847004}
+  - component: {fileID: 1754847007}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -3837,6 +4158,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754847002}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1754847007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754847002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &1797528028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3977,6 +4317,7 @@ GameObject:
   - component: {fileID: 1910732836}
   - component: {fileID: 1910732835}
   - component: {fileID: 1910732834}
+  - component: {fileID: 1910732837}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -4060,6 +4401,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910732832}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1910732837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910732832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &1969719079
 GameObject:
   m_ObjectHideFlags: 0
@@ -4073,6 +4433,7 @@ GameObject:
   - component: {fileID: 1969719082}
   - component: {fileID: 1969719081}
   - component: {fileID: 1969719084}
+  - component: {fileID: 1969719085}
   m_Layer: 0
   m_Name: WallN
   m_TagString: Untagged
@@ -4168,6 +4529,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60fc229a43a72df4c833c3e7d17975e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1969719085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969719079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fdfb323ff2a8344b737b5121a074c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 2
+  healthText: {fileID: 0}
+  maxHealth: 100
+  zeroHealthActions:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit: {fileID: 0}
 --- !u!1 &2013066825
 GameObject:
   m_ObjectHideFlags: 0

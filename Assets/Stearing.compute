@@ -214,19 +214,6 @@ void CSMain(uint3 id : SV_DispatchThreadID)
 	}
 
 
-	//Walls
-	float leftWall = (arenaWidth * 0.5f + Positions[id.x].x) / wallAwareness;
-	acceleration += lerp(float3(1, 0, 0), float3(0, 0, 0), min(1.0f, leftWall)) * 20;
-
-	float rightWall = (arenaWidth * 0.5f - Positions[id.x].x) / wallAwareness;
-	acceleration += lerp(float3(-1, 0, 0), float3(0, 0, 0), min(1., rightWall)) * 20;
-
-	float downWall = (arenaWidth * 0.5f + Positions[id.x].z) / wallAwareness;
-	acceleration += lerp(float3(0, 0, 1), float3(0, 0, 0), min(1., downWall)) * 20;
-
-	float upWall = (arenaWidth * 0.5f - Positions[id.x].z) / wallAwareness;
-	acceleration += lerp(float3(0, 0, -1), float3(0, 0, 0), min(1., upWall)) * 20;
-
 	Velocities[id.x] += acceleration * 1.1 * deltaTime;
 
 	float magnitude = length(Velocities[id.x]) + EPSILON;
